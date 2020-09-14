@@ -66,16 +66,16 @@ in
 mkShell {
   buildInputs = [
     nix-generate-from-cpan
-    perl
-    perlPackages.Mojolicious
-    perlPackages.CpanelJSONXS
-    perlPackages.EV
-    perlPackages.IOSocketSSL
-    perlPackages.RoleTiny
+    (perl.withPackages (ps: with ps; [
+      Mojolicious
+      CpanelJSONXS
+      IOSocketSSL
+      RoleTiny
 
-    cpan.IOSocketSocks
-    cpan.NetDNSNative
-    cpan.FutureAsyncAwait
+      cpan.IOSocketSocks
+      cpan.NetDNSNative
+      cpan.FutureAsyncAwait
+    ]))
 
     gitMinimal
   ];
