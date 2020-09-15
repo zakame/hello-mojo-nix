@@ -69,6 +69,7 @@ mkShell {
     (perl.withPackages (ps: with ps; [
       Mojolicious
       CpanelJSONXS
+      EV
       IOSocketSSL
       RoleTiny
 
